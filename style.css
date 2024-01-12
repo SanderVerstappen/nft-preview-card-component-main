@@ -74,15 +74,16 @@ main {
 
 .card {
   background-color: var(--clr-cardbackground);
-
+  color: var(--clr-text);
+  font-weight: var(--fw-text);
   padding: 1.5rem;
   border-radius: 1rem;
-  max-width: 375px;
+  max-width: 340px;
 }
 
 /* images */
-.product__image {
-  border-radius: 0.7rem;
+.image {
+  position: relative;
 }
 
 .creator__image {
@@ -91,6 +92,27 @@ main {
   border-color: white;
   border-radius: 2rem;
   border-width: 1.8px;
+}
+
+.product__image {
+  border-radius: 0.7rem;
+}
+
+.view__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image div {
+  position: absolute;
+  background-color: hsl(178, 100%, 50%, 50%);
+  border-radius: 0.7rem;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 /* flex-groups */
@@ -112,6 +134,7 @@ main {
   padding-top: 20px;
 }
 
+
 /* text */
 .title {
   color: white;
@@ -119,11 +142,7 @@ main {
   font-size: 1.5rem;
   padding-top: 15px;
   padding-bottom: 10px;
-}
-
-p {
-  color: var(--clr-text);
-  font-weight: var(--fw-text);
+  max-width: fit-content;
 }
 
 .creator__name {
@@ -133,20 +152,30 @@ p {
 .product__price {
   color: var(--clr-price);
   font-weight: var(--fw-title);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-/* icons */
-.product__price[data-icon="ethereum"]::before {
-  content: "";
-  background-image: url(images/icon-ethereum.svg);
-  width: 11px;
-  height: 18px;
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.time[data-icon="clock"]::before {
-  content: "";
-  background-image: url(images/icon-clock.svg);
-  width: 17px;
-  height: 17px;
+/* hover effects */
+
+.creator__name:hover,
+.title:hover {
+  color: var(--clr-price);
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
+.image div:hover {
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
